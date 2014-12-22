@@ -4,6 +4,43 @@ SWAPI, or the [Star Wars API](http://swapi.co/) is a RESTful based API for Star 
 
 It is still early in development, and pull requests are welcome!
 
+### Basics
+
+Basically this package works by creating an instance of a `SWAPIClient` and calling a method to return the appropriate Star Wars data. Each API method returns three pieces of information: a result structure, an HTTP status code, and an error object. The result structure will vary based on the method called. For example calling **GetAllPeople()** will return a `PeopleCollection` structure, while **GetPersonById(1)** will return a `People` structure.
+
+If there is a hard error, such as communicating with the server, the error structure will be non-nil. If the error is one returned by the API, the error structure will be nil, however the *ErrorMessage* key in the result structure will contain a message, and the HTTP status will reflect something other than **200**.
+
+### Examples
+
+Below are a few examples.
+
+#### Getting People
+
+```go
+package main
+
+import (
+	"log"
+
+	"github.com/adampresley/swapi-go/swapi"
+)
+
+func main() {
+	client := swapi.NewClient()
+	result, status, err := client.GetAllPeople()
+
+	if err != nil {
+		log.Fatalf("Cannot get people: %s", err.Error())
+	}
+
+	if status != 200 {
+		log.Println("HTTP error with message", result.ErrorMessage)
+	}
+
+	log.Println(result)
+}
+```
+
 ### License
 The MIT License (MIT)
 
