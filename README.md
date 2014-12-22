@@ -41,6 +41,33 @@ func main() {
 }
 ```
 
+#### Get a Person
+
+```go
+package main
+
+import (
+	"log"
+
+	"github.com/adampresley/swapi-go/swapi"
+)
+
+func main() {
+	client := swapi.NewClient()
+	result, status, err := client.GetPersonById(1)
+
+	if err != nil {
+		log.Fatalf("Cannot get person: %s", err.Error())
+	}
+
+	if status != 200 {
+		log.Println("HTTP error with message", result.ErrorMessage)
+	}
+
+	log.Println(result)
+}
+```
+
 ### License
 The MIT License (MIT)
 
