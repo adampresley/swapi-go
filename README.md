@@ -10,6 +10,8 @@ Basically this package works by creating an instance of a `SWAPIClient` and call
 
 If there is a hard error, such as communicating with the server, the error structure will be non-nil. If the error is one returned by the API, the error structure will be nil, however the *ErrorMessage* key in the result structure will contain a message, and the HTTP status will reflect something other than **200**.
 
+For more information [visit the wiki](https://github.com/adampresley/swapi-go/wiki).
+
 ### Examples
 
 Below are a few examples.
