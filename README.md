@@ -4,6 +4,16 @@ SWAPI, or the [Star Wars API](http://swapi.co/) is a RESTful based API for Star 
 
 It is still early in development, and pull requests are welcome!
 
+### Getting Started
+
+To begin using the SWAPI Go wrapper add the following line to your import statements.
+
+```go
+import "github.com/adampresley/swapi-go/swapi"
+```
+
+Next up, the basics.
+
 ### Basics
 
 Basically this package works by creating an instance of a `SWAPIClient` and calling a method to return the appropriate Star Wars data. Each API method returns three pieces of information: a result structure, an HTTP status code, and an error object. The result structure will vary based on the method called. For example calling **GetAllPeople()** will return a `PeopleCollection` structure, while **GetPersonById(1)** will return a `People` structure.
