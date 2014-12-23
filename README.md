@@ -1,6 +1,6 @@
 # SWAPI for Go
 
-SWAPI, or the [Star Wars API](http://swapi.co/) is a RESTful based API for Star Wars data. If you want information about the canon Star Wars universe, and wish to get this data via an API, then the SWAPI is for you! This is a Go-based package for consuming this library. This wrapper does not make use of generic interfaces, but instead provides concrete structure for each resource type and collection.
+SWAPI, or the [Star Wars API](http://swapi.co/) is a RESTful based API for Star Wars data. If you want information about the canon Star Wars universe, and wish to get this data via an API, then the SWAPI is for you! This is a Go-based package for consuming this library. This wrapper does not make use of generic interfaces, but instead provides concrete structures for each resource type and collection.
 
 It is still early in development, and pull requests are welcome!
 
