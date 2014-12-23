@@ -1,3 +1,9 @@
+/*
+SWAPI-Go is a Go wrapper for the SWAPI, or Star Wars API
+written by Paul Hallett and found at http://swapi.co/.
+This wrapper provides structures and methods for consuming
+this API in Go.
+*/
 package swapi
 
 import (
@@ -15,11 +21,16 @@ import (
 	"github.com/adampresley/swapi-go/swapi/vehicle"
 )
 
+/* Base URL used when communicating with the SWAPI RESTful services */
 var BaseUrl string = "http://swapi.co/api"
 
+/* Main structure housing API wrapper methods. */
 type SWAPIClient struct {
 }
 
+/*
+Returns a new instance of an SWAPIClient.
+*/
 func NewClient() *SWAPIClient {
 	return &SWAPIClient{}
 }
@@ -44,6 +55,10 @@ func (this *SWAPIClient) get(endpoint string) (int, []byte, error) {
 	return response.StatusCode, body, nil
 }
 
+/*
+Returns a FilmCollection structure which has a Results array
+of all films available from SWAPI
+*/
 func (this *SWAPIClient) GetAllFilms() (*film.FilmCollection, int, error) {
 	result := &film.FilmCollection{}
 
@@ -56,6 +71,10 @@ func (this *SWAPIClient) GetAllFilms() (*film.FilmCollection, int, error) {
 	return result, status, err
 }
 
+/*
+Returns a PeopleCollection structure which has a Results array
+of all persons available from SWAPI.
+*/
 func (this *SWAPIClient) GetAllPeople() (*people.PeopleCollection, int, error) {
 	result := &people.PeopleCollection{}
 
@@ -68,6 +87,10 @@ func (this *SWAPIClient) GetAllPeople() (*people.PeopleCollection, int, error) {
 	return result, status, err
 }
 
+/*
+Returns a PlanetCollection structure which has a Results array
+of all planets available from SWAPI.
+*/
 func (this *SWAPIClient) GetAllPlanets() (*planet.PlanetCollection, int, error) {
 	result := &planet.PlanetCollection{}
 
@@ -80,6 +103,10 @@ func (this *SWAPIClient) GetAllPlanets() (*planet.PlanetCollection, int, error) 
 	return result, status, err
 }
 
+/*
+Returns a SpeciesCollection structure which has a Results array
+of all the types of species in SWAPI.
+*/
 func (this *SWAPIClient) GetAllSpecies() (*species.SpeciesCollection, int, error) {
 	result := &species.SpeciesCollection{}
 
@@ -92,6 +119,10 @@ func (this *SWAPIClient) GetAllSpecies() (*species.SpeciesCollection, int, error
 	return result, status, err
 }
 
+/*
+Returns a StarshipCollection structure which has a Results array
+of all the types of starships available in SWAPI.
+*/
 func (this *SWAPIClient) GetAllStarships() (*starship.StarshipCollection, int, error) {
 	result := &starship.StarshipCollection{}
 
@@ -104,6 +135,10 @@ func (this *SWAPIClient) GetAllStarships() (*starship.StarshipCollection, int, e
 	return result, status, err
 }
 
+/*
+Returns a VehicleCollection structure which has a Results array
+of all the types of vehicles available in SWAPI.
+*/
 func (this *SWAPIClient) GetAllVehicles() (*vehicle.VehicleCollection, int, error) {
 	result := &vehicle.VehicleCollection{}
 
@@ -116,6 +151,10 @@ func (this *SWAPIClient) GetAllVehicles() (*vehicle.VehicleCollection, int, erro
 	return result, status, err
 }
 
+/*
+Returns a Root structure which contains a list of resources available
+in the SWAPI.
+*/
 func (this *SWAPIClient) GetAvailableResources() (*root.Root, int, error) {
 	result := &root.Root{}
 
@@ -128,6 +167,9 @@ func (this *SWAPIClient) GetAvailableResources() (*root.Root, int, error) {
 	return result, status, err
 }
 
+/*
+Returns a Film structure matching the provided ID.
+*/
 func (this *SWAPIClient) GetFilmById(id int) (*film.Film, int, error) {
 	result := &film.Film{}
 
@@ -140,6 +182,9 @@ func (this *SWAPIClient) GetFilmById(id int) (*film.Film, int, error) {
 	return result, status, err
 }
 
+/*
+Returns a People structure matching the provided ID.
+*/
 func (this *SWAPIClient) GetPersonById(id int) (*people.People, int, error) {
 	result := &people.People{}
 
@@ -152,6 +197,9 @@ func (this *SWAPIClient) GetPersonById(id int) (*people.People, int, error) {
 	return result, status, err
 }
 
+/*
+Returns a Planet structure matching the provided ID.
+*/
 func (this *SWAPIClient) GetPlanetById(id int) (*planet.Planet, int, error) {
 	result := &planet.Planet{}
 
@@ -164,6 +212,9 @@ func (this *SWAPIClient) GetPlanetById(id int) (*planet.Planet, int, error) {
 	return result, status, err
 }
 
+/*
+Returns a Species structure matching the provided ID.
+*/
 func (this *SWAPIClient) GetSpeciesById(id int) (*species.Species, int, error) {
 	result := &species.Species{}
 
@@ -176,6 +227,9 @@ func (this *SWAPIClient) GetSpeciesById(id int) (*species.Species, int, error) {
 	return result, status, err
 }
 
+/*
+Returns a Starship structure matching the provided ID.
+*/
 func (this *SWAPIClient) GetStarshipById(id int) (*starship.Starship, int, error) {
 	result := &starship.Starship{}
 
@@ -188,6 +242,9 @@ func (this *SWAPIClient) GetStarshipById(id int) (*starship.Starship, int, error
 	return result, status, err
 }
 
+/*
+Returns a Vehicle structure matching the provided ID.
+*/
 func (this *SWAPIClient) GetVehicleById(id int) (*vehicle.Vehicle, int, error) {
 	result := &vehicle.Vehicle{}
 
